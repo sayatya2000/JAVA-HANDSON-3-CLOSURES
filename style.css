@@ -1,0 +1,21 @@
+body{
+    background-color: wheat;
+}
+h1{
+    color: darkred;
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+h3{
+    color: red;
+}
+pre{
+    color: darkblue;
+    border: 1px solid darkblue;
+    border-radius: 10px;
+    background-color: cyan;
+    padding: 10px 0px;
+}
+h4{
+    color: darkblue;
+}

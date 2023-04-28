@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <h1>Closure</h1>
+    <h3>1.Print Output. </h3>
+    <pre>"    function counter(){
+        var counter = 0;
+    
+        function IncreaseCounter() {
+            return counter += 1;
+        };
+    
+        return IncreaseCounter;
+    }
+    
+    var counter = counter();
+    alert(counter());
+    alert(counter());
+    alert(counter());
+    alert(counter());"</pre>
+    <h4>Ans.</h4>
+    <h4>1,2,3 and 4 is the Output. Output will be shown in alert section of webpage.</h4>
+    <h4>Explanation:
+This code defines an outer function `counter` that initializes a `counter` variable and defines an inner function `IncreaseCounter` that increments the counter by 1 every time it is called and returns the updated value. The outer function returns the inner function, which can then be called as a standalone function to increment the counter and return the updated value. The variable `counter` is assigned to the outer function called with `()` to call the inner function, and then `alert` is used to display the updated counter value each time the inner function is called.
+So, when the script is executed, the first `alert` displays `1`, the second `alert` displays `2`, the third `alert` displays `3`, and the fourth `alert` displays `4`.
+    </h4>
+    <br>
+    <h3>2.Print Output. </h3>
+    <pre>
+        "let count = 0;
+(function () {
+  if (count === 0) {
+    let count = 1;
+    console.log(count); // What is logged?
+  }
+  console.log(count); // What is logged?
+})();"
+    </pre>
+    <h4>Ans.</h4>
+    <h4>Output is 1 and 0.</h4>
+    <h4>Explanation :
+      This code defines a variable `count` with an initial value of `0`, and immediately invokes a function using an IIFE (Immediately Invoked Function Expression) syntax. The function checks if the `count` variable is equal to `0`, and if so, it initializes a new `count` variable with a value of `1` within the function's local scope. It then logs the value of this new `count` variable to the console. Finally, the function logs the value of the outer `count` variable to the console.
+      When the code is executed, the value of the new `count` variable within the function's local scope is logged to the console, which is `1`. Then, the outer `count` variable with a value of `0` is logged to the console.
+      I hope this explanation helps!</h4>
+    <br>
+    <h3>3.Print Output.</h3>
+    <pre>
+        for (var i = 0; i < 3; i++) {
+            setTimeout(function log() {
+              console.log(i); // What is logged?
+            }, 1000);
+          }
+    </pre>
+    <h4>Ans.</h4>
+    <h4>Output is 3 3 3.</h4>
+    <h4> Explanation:
+      This code uses a `for` loop to iterate through a range of numbers from `0` to `2`. For each iteration, a `setTimeout` method is called with a function named `log`. This function logs the value of the variable `i` to the console.
+      Because `setTimeout` runs the function after a delay of 1 second, the `for` loop completes and increments `i` to a value of `3` before the `log` function is executed. As a result, the value logged to the console for all three iterations will be `3`.
+      So, when the code is executed, the value of `3` will be logged to the console three times, with a 1-second delay between each log statement.</h4>
+    <br>
+    <h3>4.Write a code to calculate area of a rectangle using inner function. In this case outer function should accept parameter length and inner function should accept parameter breadth.</h3>
+    <h4>Ans.</h4>
+    <pre>
+      function calculateArea(length) {
+        function getBreadth() {
+          return 8; // hardcoded breadth value for example purposes
+        }
+        var breadth = getBreadth();
+        var area = length * breadth;
+        return area;
+      }
+      console.log(calculateArea(10)); // output: 80
+    </pre>
+    <h4>Explanation:
+      This code defines an outer function `calculateArea` that accepts a `length` parameter, and an inner function `getBreadth` that returns a hardcoded breadth value. The outer function calls the inner function to retrieve the breadth value, and uses it to calculate the area of the rectangle by multiplying the length and breadth values. The calculated area is then returned from the function.
+      </h4>
+    <br>
+    <h3>5.Take a variable in outer function and create an inner function to increase the counter every time it is called</h3>
+    <h4>Ans.</h4>
+    <pre>
+      function outerFunction() {
+        var counter = 0;
+        function innerFunction() {
+          counter++;
+          console.log(counter);
+        }
+        return innerFunction;
+      }
+      var incrementCounter = outerFunction();
+      incrementCounter(); // output: 1
+      incrementCounter(); // output: 2
+      incrementCounter(); // output: 3
+    </pre>
+    <h4>Explanation:
+      This code defines an outer function `outerFunction` that initializes a `counter` variable and defines an inner function `innerFunction` that increments the counter by 1 every time it is called and logs the updated value to the console. The outer function returns the inner function, which can then be called as a standalone function to increment the counter and log the updated value to the console.
+    </h4>
+    <br>
+    <h3>6.Print Output.</h3>
+    <pre>
+        
+var a = 12;
+(function () {
+  alert(a);
+})();
+    </pre>
+    <h4>Ans.</h4>
+    <h4>Output is 12. Output will be shown in alert secton of webpage.</h4>
+    <h4>Explanation:
+      This code defines a variable `a` with a value of `12`, and immediately invokes a function using an IIFE (Immediately Invoked Function Expression) syntax. The function simply calls the `alert` method with the value of `a`, which is `12`.
+      When the code is executed, the `alert` method is called with the value of `a`, which is `12`. This will display an alert dialog box with the message `12`.
+      So, the output of the code will be an alert dialog box displaying the message `12`.</h4>
+    <br>
+    <h3>7.Print Output.</h3>
+    <pre>
+      "var a = 10;
+var x = (function () {
+  var a = 12;
+  return function () {
+    alert(a);
+  };
+})();
+x();"
+    </pre>
+    <h4>Ans.</h4>
+    <h4>Output is 12. Output will be shown in alert secton of webpage.</h4>
+    <h4>Explanation:
+      This code defines a global variable `a` with a value of `10`, and creates a function expression that defines a local variable `a` with a value of `12`. The function returns another function that calls the `alert` method with the value of the local variable `a`. The returned function is immediately invoked and assigned to the variable `x`. Finally, the `x` function is called, which displays an alert dialog box with the value of the local variable `a`, which is `12`.
+      When the code is executed, the returned function is immediately invoked and assigned to the variable `x`. Then, the `x` function is called, which displays an alert dialog box with the value of the local variable `a`, which is `12`.
+      So, the output of the code will be an alert dialog box displaying the message `12`.</h4>
+    <br>
+    <h3>8.Print Output.</h3>
+    <pre>
+      "var globalVar = ""xyz"";
+
+(function outerFunc(outerArg) {
+    var outerVar = 'a';
+    
+    (function innerFunc(innerArg) {
+    var innerVar = 'b';
+    
+    console.log(
+        ""outerArg = "" + outerArg + ""\n"" +
+        ""innerArg = "" + innerArg + ""\n"" +
+        ""outerVar = "" + outerVar + ""\n"" +
+        ""innerVar = "" + innerVar + ""\n"" +
+        ""globalVar = "" + globalVar);
+    
+    })(456);
+})(123);"
+    </pre>
+    <h4>Ans.</h4>
+    <h4>Output is 
+      outerArg = 123
+      innerArg = 456
+      outerVar = a
+      innerVar = b
+      globalVar = xyz</h4>
+      <h4>The code defines two nested functions, `outerFunc` and `innerFunc`, and logs the values of several variables and function arguments. When the functions are invoked, the log statement is executed, which outputs the values of `outerArg`, `innerArg`, `outerVar`, `innerVar`, and `globalVar`. The final output of the code is the log statement.</h4>
+
+
+
+    
+</body>
+<script src="./script.js"></script>
+</html>
